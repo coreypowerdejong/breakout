@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cm1lbsuv1sl3m"]
+[gd_scene load_steps=7 format=3 uid="uid://cm1lbsuv1sl3m"]
 
 [ext_resource type="PackedScene" uid="uid://2d1qr0dtbtxs" path="res://scenes/paddle.tscn" id="1_eymcb"]
+[ext_resource type="PackedScene" uid="uid://dfd1y3ysvbkva" path="res://scenes/ball.tscn" id="2_gjs31"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pxpn5"]
 
@@ -44,3 +45,6 @@ shape = SubResource("WorldBoundaryShape2D_4mk84")
 
 [node name="Paddle" parent="." instance=ExtResource("1_eymcb")]
 position = Vector2(638, 592)
+
+[node name="Ball" parent="." instance=ExtResource("2_gjs31")]
+position = Vector2(509, 392)
