@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm1lbsuv1sl3m"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pxpn5"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g5egr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_vvqv0"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mk84"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Borders" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Ceiling" type="StaticBody2D" parent="Borders"]
+position = Vector2(640, 2.08165e-12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Ceiling"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_pxpn5")
+
+[node name="LeftWall" type="StaticBody2D" parent="Borders"]
+position = Vector2(2.08165e-12, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftWall"]
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_g5egr")
+
+[node name="RightWall" type="StaticBody2D" parent="Borders"]
+position = Vector2(1280, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightWall"]
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_vvqv0")
+
+[node name="Floor" type="StaticBody2D" parent="Borders"]
+position = Vector2(640, 720)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Floor"]
+shape = SubResource("WorldBoundaryShape2D_4mk84")
