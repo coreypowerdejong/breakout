@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm1lbsuv1sl3m"]
+[gd_scene load_steps=6 format=3 uid="uid://cm1lbsuv1sl3m"]
+
+[ext_resource type="PackedScene" uid="uid://2d1qr0dtbtxs" path="res://scenes/paddle.tscn" id="1_eymcb"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pxpn5"]
 
@@ -39,3 +41,6 @@ position = Vector2(640, 720)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Floor"]
 shape = SubResource("WorldBoundaryShape2D_4mk84")
+
+[node name="Paddle" parent="." instance=ExtResource("1_eymcb")]
+position = Vector2(638, 592)
