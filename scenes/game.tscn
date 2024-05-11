@@ -27,6 +27,7 @@ shape = SubResource("WorldBoundaryShape2D_pxpn5")
 
 [node name="LeftWall" type="StaticBody2D" parent="Borders"]
 position = Vector2(2.08165e-12, 360)
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/LeftWall"]
 rotation = 1.5708
@@ -34,6 +35,7 @@ shape = SubResource("WorldBoundaryShape2D_g5egr")
 
 [node name="RightWall" type="StaticBody2D" parent="Borders"]
 position = Vector2(1280, 360)
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/RightWall"]
 rotation = -1.5708
