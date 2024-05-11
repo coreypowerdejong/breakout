@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm1lbsuv1sl3m"]
+[gd_scene load_steps=8 format=3 uid="uid://cm1lbsuv1sl3m"]
 
 [ext_resource type="PackedScene" uid="uid://2d1qr0dtbtxs" path="res://scenes/paddle.tscn" id="1_eymcb"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_h85or"]
 [ext_resource type="PackedScene" uid="uid://dfd1y3ysvbkva" path="res://scenes/ball.tscn" id="2_gjs31"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pxpn5"]
@@ -12,6 +13,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4mk84"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_h85or")
 
 [node name="Borders" type="Node2D" parent="."]
 metadata/_edit_group_ = true
