@@ -55,14 +55,14 @@ func reset_game():
 	$HUD.update_score(score)
 	$HUD.start_game()
 
-func build_bricks(rows = 8, columns = 16):
+func build_bricks(rows = 9, columns = 16):
 	get_tree().call_group("bricks", "queue_free")
 	var colors = ["tomato", "lawngreen", "dodgerblue"]
 	for i in columns:
 		for j in rows:
 			var brick = brick_scene.instantiate()
 			var spacing = 1280/columns
-			brick.global_position = Vector2(spacing/2 + i*spacing, 20 + j*40)
+			brick.global_position = Vector2(spacing/2 + i*spacing, 20 + j*25)
 			brick.set_color(colors[j % 3])
 			brick.block_broken.connect(_on_brick_broken)
 			brick.add_to_group("bricks")
