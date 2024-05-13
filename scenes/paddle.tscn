@@ -1,15 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://2d1qr0dtbtxs"]
+[gd_scene load_steps=5 format=3 uid="uid://2d1qr0dtbtxs"]
 
 [ext_resource type="Script" path="res://scripts/paddle.gd" id="1_qs5gf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qq0s"]
 size = Vector2(254, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u1rb3"]
+size = Vector2(1, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksu62"]
+size = Vector2(1, 40)
+
 [node name="Paddle" type="CharacterBody2D"]
 z_index = 1
 collision_mask = 4
 script = ExtResource("1_qs5gf")
-metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8
@@ -27,3 +32,19 @@ size_flags_horizontal = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_6qq0s")
+
+[node name="LeftChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftChecker"]
+position = Vector2(-127.5, 0)
+shape = SubResource("RectangleShape2D_u1rb3")
+
+[node name="RightChecker" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightChecker"]
+position = Vector2(127.5, 0)
+shape = SubResource("RectangleShape2D_ksu62")

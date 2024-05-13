@@ -49,7 +49,7 @@ position = Vector2(640, 720)
 shape = SubResource("WorldBoundaryShape2D_4mk84")
 
 [node name="Endzone" parent="." instance=ExtResource("2_c5la7")]
-position = Vector2(662, 582)
+position = Vector2(643, 652)
 collision_layer = 0
 collision_mask = 2
 

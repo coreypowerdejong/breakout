@@ -27,5 +27,5 @@ func reset():
 
 func launch():
 	on_paddle = false
-	velocity = Vector2.from_angle(randf_range(0.3, PI - 0.3)) * 300
+	velocity = Vector2.from_angle(randf_range(-0.3, -PI + 0.3)) * 300
 	
