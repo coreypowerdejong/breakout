@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 
+@onready var width = $ColorRect.size.x
+
 func _ready():
 	global_position = Vector2(640, 590)
 
