@@ -17,8 +17,12 @@ func update_lives(lives):
 	$Control/HBoxContainer/MarginContainer2/LivesLabel.text = "LIVES: " + str(lives)
 
 func game_over():
-	$Control/StartButton.show()
-
+	$Control/VBoxContainer/StartButton.show()
 
 func start_game():
-	$Control/StartButton.hide()
+	$Control/VBoxContainer/StartButton.hide()
+	$Control/VBoxContainer/WinLabel.hide()
+
+func win():
+	game_over()
+	$Control/VBoxContainer/WinLabel.show()

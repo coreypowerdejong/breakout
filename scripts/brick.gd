@@ -18,5 +18,5 @@ func _on_area_2d_body_entered(body):
 	emit_signal("block_broken")
 
 func set_color(color):
-	$ColorRect.set_color(color)
-
+	$Fill.set_color(color)
+	
