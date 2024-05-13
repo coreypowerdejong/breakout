@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cm1lbsuv1sl3m"]
 
-[ext_resource type="PackedScene" uid="uid://2d1qr0dtbtxs" path="res://scenes/paddle.tscn" id="1_eymcb"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_h85or"]
+[ext_resource type="PackedScene" uid="uid://ba5x0c76mltsi" path="res://scenes/endzone.tscn" id="2_c5la7"]
 [ext_resource type="PackedScene" uid="uid://dfd1y3ysvbkva" path="res://scenes/ball.tscn" id="2_gjs31"]
 [ext_resource type="Script" path="res://scripts/HUD.gd" id="4_jx427"]
 
@@ -48,8 +48,10 @@ position = Vector2(640, 720)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/Floor"]
 shape = SubResource("WorldBoundaryShape2D_4mk84")
 
-[node name="Paddle" parent="." instance=ExtResource("1_eymcb")]
-position = Vector2(638, 592)
+[node name="Endzone" parent="." instance=ExtResource("2_c5la7")]
+position = Vector2(662, 582)
+collision_layer = 0
+collision_mask = 2
 
 [node name="Ball" parent="." instance=ExtResource("2_gjs31")]
 position = Vector2(509, 392)
@@ -57,20 +59,52 @@ position = Vector2(509, 392)
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("4_jx427")
 
-[node name="Label" type="Label" parent="HUD"]
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -50.5
+offset_left = -95.5
 offset_top = -45.0
-offset_right = 50.5
+offset_right = 95.5
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 40
+
+[node name="ScoreLabel" type="Label" parent="HUD/Control/HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 11
 theme_override_font_sizes/font_size = 32
-text = "SCORE"
+text = "SCORE: 0"
 horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD/Control/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="LivesLabel" type="Label" parent="HUD/Control/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 32
+text = "LIVES: 3"
+
+[connection signal="body_entered" from="Endzone" to="." method="_on_endzone_body_entered"]
