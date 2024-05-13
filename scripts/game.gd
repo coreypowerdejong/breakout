@@ -22,7 +22,7 @@ func _process(delta):
 func _on_brick_broken():
 	score += 1
 	$HUD.update_score(score)
-
+	$Ball.increase_speed()
 
 func _on_endzone_body_entered(body):
 	$Ball.reset()
