@@ -24,3 +24,4 @@ func _on_brick_broken():
 
 func _on_endzone_body_entered(body):
 	print("Ball out")
+	$Ball.reset()
