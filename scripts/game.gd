@@ -7,12 +7,7 @@ var lives: int = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reset_game()
-	for i in 16:
-		for j in 8:
-			var brick = brick_scene.instantiate()
-			brick.global_position = Vector2( 1280 / 32 + i*1280/16, 20 + j*40)
-			brick.block_broken.connect(_on_brick_broken)
-			add_child(brick)
+	build_bricks()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,3 +45,13 @@ func reset_game():
 	score = 0
 	$HUD.update_score(score)
 	$HUD.start_game()
+
+func build_bricks(rows = 8, columns = 16):
+	var colors = ["tomato", "lawngreen", "dodgerblue"]
+	for i in columns:
+		for j in rows:
+			var brick = brick_scene.instantiate()
+			brick.global_position = Vector2( 1280 / 32 + i*1280/16, 20 + j*40)
+			brick.set_color(colors[j % 3])
+			brick.block_broken.connect(_on_brick_broken)
+			add_child(brick)

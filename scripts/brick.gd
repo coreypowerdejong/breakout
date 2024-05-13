@@ -17,3 +17,6 @@ func _on_area_2d_body_entered(body):
 	queue_free()
 	emit_signal("block_broken")
 
+func set_color(color):
+	$ColorRect.set_color(color)
+
