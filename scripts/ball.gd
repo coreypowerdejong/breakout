@@ -12,7 +12,7 @@ func _ready():
 func _physics_process(delta):
 	
 	if on_paddle:
-		global_position = Paddle.global_position + Vector2(0, -60)
+		go_to_paddle()
 		velocity = Vector2.ZERO
 		if Input.is_action_pressed("launch_ball"):
 			launch()
@@ -29,6 +29,7 @@ func _physics_process(delta):
 
 func reset():
 	on_paddle = true
+	go_to_paddle()
 
 func launch():
 	on_paddle = false
@@ -39,3 +40,6 @@ func calculate_bounce_angle():
 	var p_width = Paddle.width
 	var angle = remap(p_dist, -p_width / 2, p_width / 2, PI, 2 * PI)
 	return angle
+
+func go_to_paddle():
+	global_position = Paddle.global_position + Vector2(0, -60)

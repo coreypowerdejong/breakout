@@ -6,7 +6,7 @@ const SPEED = 500.0
 @onready var width = $ColorRect.size.x
 
 func _ready():
-	global_position = Vector2(640, 590)
+	reset()
 
 func _physics_process(delta):
 
@@ -25,3 +25,6 @@ func _physics_process(delta):
 	if block_right and velocity.x > 0:
 		velocity.x = 0
 	move_and_collide(delta * velocity)
+
+func reset():
+	global_position = Vector2(640, 590)
